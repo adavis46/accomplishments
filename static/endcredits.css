@@ -57,10 +57,10 @@
 #credits p {
     width: 70%
     margin: 0px 0px 10px 60px;
-    padding: 0px 500px 0px 500px;
+    padding: 0px 350px 0px 350px;
     text-align: center;
-    font-family: Arial, sans-serif;
-    font-size: 20px;
+    font-family: Georgia, serif;
+    font-size: 30px;
 }
 #credits .fineprint {
     color: #888888;
