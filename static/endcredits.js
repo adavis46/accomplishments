@@ -10,8 +10,7 @@
  */
 $(document).ready(function () {
 
-    $('a[name=creditos]').click(function (e) {
-        e.preventDefault();
+    $(function(){
         
         var maskHeight = $(document).height();
         var maskWidth = $(window).width();
@@ -20,41 +19,48 @@ $(document).ready(function () {
             'width': maskWidth,
             'height': maskHeight
         });
-
-        $('#titles').fadeIn(1000);
-        $('#titles').fadeTo("slow");
+        function runIt() {
+        $('#titles').fadeIn();
+        $('#titles').fadeTo();
         $('#titles').fadeIn();
         $('#credits').css("left", (($('#credits').parent().width() - $('#credits').outerWidth()) / 2) + "px");
-        $('#credits').css("bottom", "-" + (maskHeight * 6) + "px");
-        $('#credits').show('slow');
-
+        $('#credits').css("bottom", "-" + (maskHeight * 20) + "px");
+        $('#credits').show('fast');
         $('#credits').animate({
-            bottom: maskHeight + "px"
+            bottom: [maskHeight + "px", "linear"]
         }, {
-            duration: 50000,
-            complete: function () {
-                $('#titles').fadeOut();
-                $('.window').fadeOut();
-                $('#credits').css("bottom", "-" + (maskHeight * 2) + "px");
-            },
-            step: function (n, t) {
-                var pos = $(this).position();
-                console.log('X: ' + pos.left.toFixed(2) + ' Y: ' + pos.top.toFixed(2));
-            }
+            duration: 200000
         });
+        $('#credits').hide("slow", runIt);
+        //     { 
+        //         duration: 5000000,
+        // //  complete: function () {
+        // //         // $('#titles').fadeOut();
+        // //         // $('.window').fadeOut();
+        // //         // $('#credits').css("bottom", "-" + (maskHeight * 2) + "px");
+        //     }
+        } 
+        runIt();
 
-    });
+    //         step: function (n, t) {
+    //             var pos = $(this).position();
+    //             console.log('X: ' + pos.left.toFixed(2) + ' Y: ' + pos.top.toFixed(2));
+    //         }
+    //     });
 
-    $('.window .close').click(function (e) {
-        e.preventDefault();
-        $('#credits').css("bottom", "-" + ($(document).height() * 2) + "px");
-        $('#titles').hide();
-        $('.window').hide();
-    });
+    // });
 
-    $('#titles').click(function () {
-        $(this).hide();
-        $('#credits').css("bottom", "-" + ($(document).height() * 2) + "px");
-        $('.window').hide();
-    });
+    // $('.window .close').click(function (e) {
+    //     e.preventDefault();
+    //     $('#credits').css("bottom", "-" + ($(document).height() * 2) + "px");
+    //     $('#titles').hide();
+    //     $('.window').hide();
+    // });
+
+    // $('#titles').click(function () {
+    //     $(this).hide();
+    //     $('#credits').css("bottom", "-" + ($(document).height() * 2) + "px");
+    //     $('.window').hide();
+    // });
+   });
 });
