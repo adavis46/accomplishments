@@ -24,7 +24,7 @@ $(document).ready(function () {
         $('#titles').fadeTo();
         $('#titles').fadeIn();
         $('#credits').css("left", (($('#credits').parent().width() - $('#credits').outerWidth()) / 2) + "px");
-        $('#credits').css("bottom", "-" + (maskHeight * 15.6) + "px");
+        $('#credits').css("bottom", "-" + (maskHeight * 15.8) + "px");
         $('#credits').show('fast');
         $('#credits').animate({
             bottom: [maskHeight + "px", "linear"]
